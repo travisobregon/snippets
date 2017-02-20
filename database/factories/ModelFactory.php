@@ -17,8 +17,22 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 
     return [
         'name' => $faker->name,
+        'username' => $faker->userName,
         'email' => $faker->unique()->safeEmail,
         'password' => $password ?: $password = bcrypt('secret'),
         'remember_token' => str_random(10),
+    ];
+});
+
+$factory->define(App\Snippet::class, function (Faker\Generator $faker) {
+    return [
+        'user_id' => function () {
+        	return factory(App\User::class)->create()->id;
+        },
+        'forked_id' => $faker->boolean ? function () {
+        	return factory(App\Snippet::class)->create()->id;
+        } : null,
+        'title' => $faker->sentence,
+        'body' => $faker->paragraph,
     ];
 });

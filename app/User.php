@@ -26,4 +26,23 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * The field to be used for route model binding.
+     * 
+     * @return string
+     */
+    public function getRouteKeyName() {
+        return 'username';
+    }
+
+    /**
+     * A user may have multiple snippets.
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function snippets()
+    {
+        return $this->hasMany(Snippet::class); 
+    }
 }
