@@ -6,7 +6,7 @@
             <h4 class="flex">
                 {{ $snippet->title }}
 
-                <small>By: {{ $snippet->user->name }}</small>
+                <small>By: <a href="/&#64;{{ $snippet->user->username }}">{{ $snippet->user->name }}</a></small>
             </h4>   
 
             @include('snippets.like-form')

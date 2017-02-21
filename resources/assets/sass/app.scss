@@ -8,8 +8,9 @@
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
-.mb-1 {
-	margin-bottom: 1em;
+.dropdown-menu .glyphicon,
+.btn > .glyphicon {
+	margin-right: 5px;
 }
 
 .is-flex {

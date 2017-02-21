@@ -2,8 +2,6 @@
 
 @section ('content')
     <div class="col-md-8 col-md-offset-2">
-        <h1>My Snippets</h1>
-
         @forelse ($user->snippets as $snippet)
         	<article class="snippet">
                 <div class="is-flex">
@@ -12,7 +10,7 @@
                             {{ $snippet->title }}
                         </a>
 
-                        <small>By: {{ $snippet->user->name }}</small>
+                        <small>By: {{ $user->name }}</small>
                     </h4>   
 
                     @include('snippets.like-form')
@@ -21,7 +19,11 @@
                 <pre><code>{{ $snippet->body }}</code></pre>
             </article>
         @empty
-        	No snippets have been made yet. <a href="/snippets/create">Create Snippet</a>
+        	<h4>There are no snippets here at the moment.
+
+            @if (Auth::user()->id === $user->id)
+                <a href="/snippets/create">Create Snippet</a></h4>
+            @endif
         @endforelse
     </div>
 @endsection

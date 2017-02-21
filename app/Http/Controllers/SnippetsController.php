@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use DB;
 use App\Snippet;
 
 class SnippetsController extends Controller
@@ -19,8 +20,16 @@ class SnippetsController extends Controller
     public function index()
     {
         $snippets = Snippet::with('user')->latest()->paginate(5);
+        $topUsers = DB::table('snippets_votes')
+                        ->join('users', 'users.id', '=', 'snippets.user_id')
+                        ->join('snippets', 'snippets.id', '=', 'snippets_votes.snippet_id')
+                        ->select(DB::raw('count(*) as votes, name, username'))
+                        ->groupBy('snippets.user_id')
+                        ->orderBy('votes', 'desc')
+                        ->limit(10)
+                        ->get();
 
-        return view('snippets.index', compact('snippets'));
+        return view('snippets.index', compact('snippets', 'topUsers'));
     }
 
     /**

@@ -53,7 +53,7 @@ class User extends Authenticatable
      */
     public function votes()
     {
-        return $this->belongsToMany(Snippet::class, 'snippets_votes'); 
+        return $this->belongsToMany(Snippet::class, 'snippets_votes')->withTimestamps(); 
     }
 
     /**
