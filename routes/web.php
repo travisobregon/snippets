@@ -8,4 +8,6 @@ Route::get('/snippets/{snippet}/fork', 'SnippetsController@create');
 
 Route::get('/@{user}', 'UsersController@show');
 
+Route::post('/votes/{snippet}', 'VotesController@store');
+
 Auth::routes();

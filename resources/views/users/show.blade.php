@@ -15,7 +15,7 @@
                         <small>By: {{ $snippet->user->name }}</small>
                     </h4>   
 
-                    <a href="/snippets/{{ $snippet->id }}/fork" class="btn btn-sm btn-default">Fork Me</a>
+                    @include('snippets.like-form')
                 </div>
 
                 <pre><code>{{ $snippet->body }}</code></pre>

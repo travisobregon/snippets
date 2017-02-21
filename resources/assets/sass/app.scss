@@ -34,3 +34,22 @@ article.snippet {
 pre {
 	padding: 0;
 }
+
+button.glyphicon.glyphicon-heart {
+	background: none;
+	border: none;
+	outline: none;
+}
+
+button.glyphicon.glyphicon-heart:hover {
+	color: crimson;
+	cursor: pointer;
+}
+
+button.glyphicon.glyphicon-heart.liked {
+	color: crimson;
+}
+
+.like-counter {
+	margin-right: 1rem;
+}

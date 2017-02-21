@@ -22,3 +22,13 @@ const app = new Vue({
 import autosize from 'autosize';
 
 autosize($('textarea'));
+
+$('.vote-form').submit(e => {
+	e.preventDefault();
+
+    axios.post(`/votes/${e.target.snippet_id.value}`)
+        .then(response => {
+            $(e.target.like_btn).toggleClass('liked');
+            $(e.target.like_btn).siblings('.like-counter').html(response.data.count);
+        });
+});

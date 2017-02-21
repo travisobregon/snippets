@@ -18,7 +18,7 @@ class SnippetsController extends Controller
      */
     public function index()
     {
-        $snippets = Snippet::with('user')->latest()->paginate(10);
+        $snippets = Snippet::with('user')->latest()->paginate(5);
 
         return view('snippets.index', compact('snippets'));
     }

@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'username', 'email', 'password',
     ];
 
     /**
@@ -44,5 +44,26 @@ class User extends Authenticatable
     public function snippets()
     {
         return $this->hasMany(Snippet::class); 
+    }
+
+    /**
+     * A user may have multiple votes.
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function votes()
+    {
+        return $this->belongsToMany(Snippet::class, 'snippets_votes'); 
+    }
+
+    /**
+     * Determine if a user voted for a given snippet.
+     * 
+     * @param  Snippet $snippet 
+     * @return bool
+     */
+    public function votedFor(Snippet $snippet)
+    {
+        return $snippet->votes->contains('user_id', $this->id); 
     }
 }

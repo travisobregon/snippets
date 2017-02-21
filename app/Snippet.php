@@ -37,10 +37,20 @@ class Snippet extends Model
     /**
      * Determine if the current snippet is a fork.
      * 
-     * @return boolean
+     * @return bool
      */
     public function isAFork()
     {
         return !! $this->forked_id;     
+    }
+
+    /**
+     * A snippet may have multiple votes.
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function votes()
+    {
+        return $this->hasMany(SnippetVote::class); 
     }
 }

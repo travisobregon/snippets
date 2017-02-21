@@ -11210,6 +11210,15 @@ var app = new Vue({
 
 
 __WEBPACK_IMPORTED_MODULE_0_autosize___default()($('textarea'));
+
+$('.vote-form').submit(function (e) {
+  e.preventDefault();
+
+  axios.post('/votes/' + e.target.snippet_id.value).then(function (response) {
+    $(e.target.like_btn).toggleClass('liked');
+    $(e.target.like_btn).siblings('.like-counter').html(response.data.count);
+  });
+});
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(2)))
 
 /***/ }),
