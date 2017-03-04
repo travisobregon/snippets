@@ -49,7 +49,7 @@ class User extends Authenticatable
     /**
      * A user may have multiple votes.
      * 
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function votes()
     {

@@ -7,5 +7,5 @@
     
     <span class="like-counter">{{ $snippet->votes->count() }}</span>
 
-    <a href="/snippets/{{ $snippet->id }}/fork" class="btn btn-sm btn-default">Fork Me</a>
+    <a href="/snippets/{{ $snippet->id }}/fork" class="btn btn-sm btn-default">Fork</a>
 </form>

@@ -49,8 +49,6 @@
             </div>
         </div>
     @else
-        <div>
-            <h4>There are no snippets at the moment. <a class="" href="/snippets/create">Create Snippet</a></h4>
-        </div>
+        <h4 class="text-center">There are no snippets at the moment. <a class="" href="/snippets/create">Create Snippet</a></h4>
     @endif
 @endsection
