@@ -9,7 +9,7 @@
                 <small>By: <a href="/&#64;{{ $snippet->user->username }}">{{ $snippet->user->name }}</a></small>
             </h4>   
 
-            @include('snippets.like-form')
+            @include('snippets.vote-form')
         </div>
 
         <pre><code>{{ $snippet->body }}</code></pre>

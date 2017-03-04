@@ -28,7 +28,7 @@ $('.vote-form').submit(e => {
 
     axios.post(`/votes/${e.target.snippet_id.value}`)
         .then(response => {
-            $(e.target.like_btn).toggleClass('liked');
-            $(e.target.like_btn).siblings('.like-counter').html(response.data.count);
+            $(e.target.vote_btn).toggleClass('liked');
+            $(e.target.vote_btn).siblings('.like-counter').html(response.data.count);
         });
 });

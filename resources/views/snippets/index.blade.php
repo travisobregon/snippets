@@ -16,7 +16,7 @@
                                     <small>By: <a href="/&#64;{{ $snippet->user->username }}">{{ $snippet->user->name }}</a></small>
                                 </h4>   
 
-                                @include('snippets.like-form')
+                                @include('snippets.vote-form')
                             </div>
 
                             <pre><code>{{ $snippet->body }}</code></pre>
@@ -30,9 +30,9 @@
             </div>
 
             <div class="col-md-4">
-                <h4>Top Users</h4>
-
                 @if ($topUsers->count())
+                    <h4>Top Users</h4>
+
                     <ul class="list-group">
                         @foreach ($topUsers as $user)
                             <li class="list-group-item">
@@ -41,8 +41,6 @@
                             </li>
                         @endforeach
                     </ul>
-                @else
-                    No snippets have been liked yet.
                 @endif
 
                 <a class="btn btn-primary btn-block" href="/snippets/create"><span class="glyphicon glyphicon-pencil"></span>Create Snippet</a>

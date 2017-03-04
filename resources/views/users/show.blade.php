@@ -13,7 +13,7 @@
                         <small>By: {{ $user->name }}</small>
                     </h4>   
 
-                    @include('snippets.like-form')
+                    @include('snippets.vote-form')
                 </div>
 
                 <pre><code>{{ $snippet->body }}</code></pre>

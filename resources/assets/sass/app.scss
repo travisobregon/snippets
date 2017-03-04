@@ -23,7 +23,7 @@
 	flex: 1;
 }
 
-article.snippet {
+article.snippet:not(:first-child) {
 	padding-top: 1em;
 }
 
@@ -51,6 +51,45 @@ button.glyphicon.glyphicon-heart.liked {
 	color: crimson;
 }
 
-.like-counter {
+.vote-counter {
 	margin-right: 1rem;
+}
+
+html {
+	position: relative;
+	min-height: 100%;
+}
+
+body {
+	/* Margin bottom by footer height */
+	margin-bottom: 60px;
+}
+
+.footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	/* Set the fixed height of the footer here */
+	height: 60px;
+	background-color: white;
+}
+
+.footer {
+	border-top: 1px solid #d3e0e9;
+}
+
+.footer a {
+	cursor: pointer;
+}
+
+.footer .glyphicon-chevron-left {
+	margin-right: -5px;
+}
+
+.container p {
+	margin: 20px 0;
+}
+
+.glyphicon-code:before {
+	content: '\f05f';
 }
