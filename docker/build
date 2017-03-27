@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+docker build -f app/Dockerfile -t snippets/app:latest ./app
+docker build -f node/Dockerfile -t snippets/node:latest ./node

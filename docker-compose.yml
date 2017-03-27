@@ -1,0 +1,41 @@
+version: '2'
+services:
+  app:
+    build:
+      context: ./docker/app
+      dockerfile: Dockerfile
+    image: snippets/app
+    volumes:
+     - .:/var/www/html
+    ports:
+     - "${APP_PORT}:80"
+    networks:
+     - snet
+  node:
+    build:
+      context: ./docker/node
+      dockerfile: Dockerfile
+    image: snippets/node
+    volumes:
+     - .:/var/www/html
+    networks:
+     - snet
+  mysql:
+    image: mysql:5.7
+    ports:
+     - "${DB_PORT}:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: "${DB_ROOT_PASS}"
+      MYSQL_DATABASE: "${DB_NAME}"
+      MYSQL_USER: "${DB_USER}"
+      MYSQL_PASSWORD: "${DB_PASS}"
+    volumes:
+     - mysqldata:/var/lib/mysql
+    networks:
+     - snet
+networks:
+  snet:
+    driver: "bridge"
+volumes:
+  mysqldata:
+    driver: "local"

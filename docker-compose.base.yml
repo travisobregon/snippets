@@ -1,0 +1,26 @@
+version: '2'
+services:
+  app:
+    build:
+      context: ./docker/app
+      dockerfile: Dockerfile
+    image: snippets/app
+    volumes:
+     - .:/var/www/html
+    networks:
+     - snet
+  node:
+    build:
+      context: ./docker/node
+      dockerfile: Dockerfile
+    image: snippets/node
+    volumes:
+     - .:/var/www/html
+    networks:
+     - snet
+  mysql:
+    image: mysql:5.7
+    volumes:
+     - mysqldata:/var/lib/mysql
+    networks:
+     - snet
