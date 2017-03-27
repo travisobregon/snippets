@@ -15,6 +15,6 @@ node('master') {
         sh './develop art key:generate'
     }
     stage('test') {
-        sh "APP_ENV=testing ./develop test"
+        sh "./develop test"
     }
 }
