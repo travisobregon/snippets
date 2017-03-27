@@ -15,6 +15,7 @@ node('master') {
         sh './develop art key:generate'
     }
     stage('test') {
+        sh "./develop art dusk"
         sh "./develop test"
     }
 }
