@@ -25,7 +25,7 @@ node('master') {
         slackSend color: 'good', message: "Completed ${env.JOB_NAME} (<${env.BUILD_URL}|build ${env.BUILD_NUMBER}>) successfully"
     } catch(error) {
         // Maybe some alerting?
-        slackSend color: 'bad', message: "Failed ${env.JOB_NAME} (<${env.BUILD_URL}|build ${env.BUILD_NUMBER}>) - <${env.BUILD_URL}console|click here to see the console output>"
+        slackSend color: 'danger', message: "Failed ${env.JOB_NAME} (<${env.BUILD_URL}|build ${env.BUILD_NUMBER}>) - <${env.BUILD_URL}console|click here to see the console output>"
         throw error
     } finally {
         // Spin down containers no matter what happens
