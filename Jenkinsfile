@@ -13,6 +13,7 @@ node('master') {
 
             // Create .env file for testing
             sh 'cp .env.example .env'
+            sh 'sed -i "s/APP_ENV=.*/APP_ENV=testing/" .env'
             sh './develop art key:generate'
         }
 
