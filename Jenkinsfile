@@ -18,7 +18,6 @@ node('master') {
         }
 
         stage('test') {
-            // sh "./develop art dusk"
             sh "./develop test"
         }
 
