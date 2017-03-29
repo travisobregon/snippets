@@ -9,9 +9,9 @@ else
 fi
 
 export APP_PORT=${APP_PORT:-8888}
-export DB_PORT=${DB_PORT:-3306}
+export DB_PORT=${DB_PORT:-33060}
 export DB_ROOT_PASS=${DB_ROOT_PASS:-secret}
-export DB_NAME=${DB_NAME:-helpspot}
+export DB_NAME=${DB_NAME:-snippets}
 export DB_USER=${DB_USER:-helpspot}
 export DB_PASS=${DB_PASS:-secret}
 
