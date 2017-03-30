@@ -21,13 +21,6 @@ node('master') {
             sh "./develop test"
         }
 
-        stage('SonarQube analysis') {
-            def scannerHome = tool 'SonarQube Scanner';
-            withSonarQubeEnv('SonarQube Server') {
-                sh "${scannerHome}/bin/sonar-scanner"
-            }
-        }
-
         slackSend color: 'good', message: "Completed ${env.JOB_NAME} (<${env.BUILD_URL}|build ${env.BUILD_NUMBER}>) successfully"
     } catch(error) {
         // Maybe some alerting?
