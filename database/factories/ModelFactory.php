@@ -27,11 +27,12 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 $factory->define(App\Snippet::class, function (Faker\Generator $faker) {
     return [
         'user_id' => function () {
-        	return factory(App\User::class)->create()->id;
+            return factory(App\User::class)->create()->id;
         },
         'forked_id' => $faker->boolean ? function () {
-        	return factory(App\Snippet::class)->create()->id;
-        } : null,
+            return factory(App\Snippet::class)->create()->id;
+        }
+    : null,
         'title' => $faker->sentence,
         'body' => $faker->paragraph,
     ];
