@@ -27,6 +27,7 @@ before_script:
   - sleep 5
 
 script:
+  - vendor/bin/phpunit
   - php artisan dusk
 
 notifications:
