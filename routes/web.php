@@ -1,5 +1,10 @@
 <?php
 
+Route::get('ci', function () {
+    dump('we made it!');
+    dd(env('APP_ENV'));
+});
+
 Route::get('/', 'SnippetsController@index')->name('home');
 Route::get('/snippets/create', 'SnippetsController@create');
 Route::get('/snippets/{snippet}', 'SnippetsController@show');

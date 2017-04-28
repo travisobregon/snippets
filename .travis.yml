@@ -30,5 +30,10 @@ script:
   - vendor/bin/phpunit
   - php artisan dusk
 
+deploy:
+  provider: heroku
+  api_key:
+    secure: vO/Dle9hkEFwMSSoDGkBmMxEzAnyRD1bdobPowgtkruurfAQD8EDSJwK9Epg6Hlaj9sD7qa1fm2cXtjyUL5lOB7i5Qew+4QoCTkQb5mElTn3+KSB9OVHPlVa12HfHfOeWAHvSovbfiX2WVHMPb6Ty/14jJPdCqvBLCMo1xBEEYlddNw+r1P68yJz/P84/mz951emUS9xw3HIj04UjyWA2MCY98nmo/0KQfTHtc1+aLuKqQWFfBu5QyoL9KMgZVkmTAeE/r/j1TG+/XN+A5Ng4SUV4JhQOYbE6vFHReqbXvPsfQ45xbsuRjb37U6o0r1G3cpHA3JE9APJlWAxmLV5R5MlOI7kxT37i7kkcmLh3+8+H/hdSpZ+G8eYwzAowl+7qPl4c7UVW5t72tucYFPKN25SW0Pnt5PHQc8JjhVgp4PH5mEGMeKpzeLztrJSH7A213v672t/r5Gjp2B3ftDbd2k3FAQEHIUfw2kLRUguyDA4PQQwlwf9V0ns1XpDLojFa4X+EURRQKhHOnbCjpr0SL8jtJqLiPsxjJjzrnZreY3C7RI5PwqOhItfxRy/PcuJzv7GNoVAU3sI+04yjAVbpA+fnpzie+EvJSQ8ROjBxz2nKFmwuqInmHJVLURYmUV6Ta4nrfvO5GTb6wegfeZnyvO2amwfc3VpUbADqm2t+PM=
+
 notifications:
   slack: itt-devops:3h9i2RuAo1VWBTj9oCi5DWEQ
