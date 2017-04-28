@@ -12,14 +12,19 @@ before_install:
   - mysql -e 'CREATE DATABASE snippets_testing;'
 
 install:
-  - travis_retry composer install --no-interaction
+  - travis_retry composer install --no-interaction --prefer-dist --no-suggest
+  # Create a new .env file
+  - cp .env.testing .env
+  # Generate application key
+  - php artisan key:generate
 
 before_script:
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
-  - ./vendor/laravel/dusk/bin/chromedriver-linux &
-  - cp .env.testing .env
+  # Start PhantomJS driver
+  - phantomjs --webdriver=127.0.0.1:9515 &
+  # Start server
   - php artisan serve &
+  # Give PhantomJS and Artisan time to start
+  - sleep 5
 
 script:
   - php artisan dusk
