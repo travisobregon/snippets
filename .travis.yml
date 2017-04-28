@@ -23,3 +23,6 @@ before_script:
 
 script:
   - php artisan dusk
+
+notifications:
+  slack: itt-devops:3h9i2RuAo1VWBTj9oCi5DWEQ
