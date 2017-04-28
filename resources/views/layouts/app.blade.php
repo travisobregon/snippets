@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Snippets</title>
+    <title>Snippets: foo</title>
 
     <!-- Styles -->
     <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/dracula.min.css" rel="stylesheet" >
