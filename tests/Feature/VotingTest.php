@@ -2,12 +2,10 @@
 
 namespace Tests\Feature;
 
-use App\Snippet;
 use App\User;
+use App\Snippet;
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class VotingTest extends TestCase
 {

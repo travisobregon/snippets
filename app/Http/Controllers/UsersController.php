@@ -13,14 +13,14 @@ class UsersController extends Controller
 
     /**
      * Show a single user.
-     * 
-     * @param  User $user 
-     * @return \Response         
+     *
+     * @param  User $user
+     * @return \Response
      */
     public function show(User $user)
     {
-    	$user->load('snippets');
-    	
+        $user->load('snippets');
+
         return view('users.show', compact('user'));
     }
 }
