@@ -27,7 +27,6 @@ before_script:
   - sleep 5
 
 script:
-  - cat .env
   - vendor/bin/phpunit
   - php artisan dusk
 
