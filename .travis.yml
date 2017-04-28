@@ -20,15 +20,15 @@ before_script:
   # Generate application key
   - php artisan key:generate
   # Start PhantomJS driver
-  - phantomjs --webdriver=127.0.0.1:9515 &
+  #- phantomjs --webdriver=127.0.0.1:9515 &
   # Start server
-  - php artisan serve &
+  #- php artisan serve &
   # Give PhantomJS and Artisan time to start
-  - sleep 5
+  #- sleep 5
 
 script:
   - vendor/bin/phpunit
-  - php artisan dusk
+  #- php artisan dusk
 
 notifications:
   slack: itt-devops:3h9i2RuAo1VWBTj9oCi5DWEQ
