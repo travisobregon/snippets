@@ -37,6 +37,13 @@ deploy:
   app: shielded-cove-19524
   on:
     repo: travisobregon/snippets
+  run:
+    - "composer install -o --no-interactions"
+    - "php artisan migrate --no-interaction --force"
+    - "yarn && npm run production"
+    - "php artisan route:cache"
+    - "php artisan config:cache"
+    - "php artisan queue:restart"
 
 notifications:
   slack: itt-devops:3h9i2RuAo1VWBTj9oCi5DWEQ
