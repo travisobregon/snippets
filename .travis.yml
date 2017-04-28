@@ -5,12 +5,6 @@ dist: trusty
 php:
   - 7.1
 
-services:
-  - mysql
-
-before_install:
-  - mysql -e 'CREATE DATABASE snippets_testing;'
-
 install:
   - travis_retry composer install --no-interaction
 
@@ -19,7 +13,6 @@ before_script:
   - sh -e /etc/init.d/xvfb start
   - ./vendor/laravel/dusk/bin/chromedriver-linux &
   - cp .env.testing .env
-  - php artisan key:generate
   - php artisan serve &
 
 script:
