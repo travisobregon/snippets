@@ -2,12 +2,11 @@
 
 namespace Tests\Unit;
 
-use App\Snippet;
 use App\User;
-use Illuminate\Database\QueryException;
+use App\Snippet;
 use Tests\TestCase;
+use Illuminate\Database\QueryException;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class UserTest extends TestCase
 {
@@ -19,28 +18,28 @@ class UserTest extends TestCase
         try {
             factory(User::class)->create([
                 'username' => 'foobar',
-                'name' => 'First User'
+                'name' => 'First User',
             ]);
 
             factory(User::class)->create([
                 'username' => 'foobar',
-                'name' => 'Second User'
+                'name' => 'Second User',
             ]);
         } catch (QueryException $e) {
             $this->assertDatabaseHas('users', [
                 'username' => 'foobar',
-                'name' => 'First User'
+                'name' => 'First User',
             ]);
 
             $this->assertDatabaseMissing('users', [
                 'username' => 'foobar',
-                'name' => 'Second User'
+                'name' => 'Second User',
             ]);
 
             return;
         }
 
-        $this->fail("User creation succeeded even though the username was already taken.");
+        $this->fail('User creation succeeded even though the username was already taken.');
     }
 
     /** @test */

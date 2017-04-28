@@ -13,7 +13,7 @@ class AuthTest extends DuskTestCase
     /** @test */
     public function logging_in_with_invalid_credentials()
     {
-         $this->browse(function ($browser) {
+        $this->browse(function ($browser) {
             $browser->visit('/login')
                 ->type('email', 'foobar@example.com')
                 ->type('password', 'foobar')

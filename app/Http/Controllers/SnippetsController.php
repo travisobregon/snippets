@@ -14,7 +14,7 @@ class SnippetsController extends Controller
 
     /**
      * List all of the snippets.
-     * 
+     *
      * @return \Response
      */
     public function index()
@@ -34,7 +34,7 @@ class SnippetsController extends Controller
 
     /**
      * Show a page to create a new snippet.
-     * 
+     *
      * @param  Snippet $snippet
      * @return \Response
      */
@@ -45,9 +45,9 @@ class SnippetsController extends Controller
 
     /**
      * Show a single snippet.
-     * 
-     * @param  Snippet $snippet 
-     * @return \Response         
+     *
+     * @param  Snippet $snippet
+     * @return \Response
      */
     public function show(Snippet $snippet)
     {
@@ -58,19 +58,19 @@ class SnippetsController extends Controller
 
     /**
      * Store a new snippet in the database.
-     * 
+     *
      * @return \RedirectResponse
      */
     public function store()
     {
         $this->validate(request(), [
             'title' => 'required',
-            'body' => 'required'
+            'body' => 'required',
         ]);
 
         $data = request()->only(['title', 'body', 'forked_id']);
         $data['user_id'] = auth()->user()->id;
-        
+
         Snippet::create($data);
 
         return redirect()->home();

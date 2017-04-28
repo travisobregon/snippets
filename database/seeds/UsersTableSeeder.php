@@ -11,15 +11,15 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-    	DB::table('users')->insert([
+        DB::table('users')->insert([
             'name' => 'Travis Obregon',
-    		'username' => 'travisobregon',
-    		'email' => 'travismobregon@gmail.com',
-    		'password' => bcrypt('apple123'),
+            'username' => 'travisobregon',
+            'email' => 'travismobregon@gmail.com',
+            'password' => bcrypt('apple123'),
             'remember_token' => str_random(10),
             'created_at' => Carbon\Carbon::now(),
-    		'updated_at' => Carbon\Carbon::now(),
-		]);
+            'updated_at' => Carbon\Carbon::now(),
+        ]);
 
         factory(App\User::class, 3)->create();
     }

@@ -2,12 +2,10 @@
 
 namespace Tests\Feature;
 
-use App\Snippet;
 use App\User;
+use App\Snippet;
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class ViewSnippetListingTest extends TestCase
 {
@@ -24,7 +22,7 @@ class ViewSnippetListingTest extends TestCase
     }
 
     /** @test */
-    function user_can_view_a_published_snippet_listing()
+    public function user_can_view_a_published_snippet_listing()
     {
         $snippet = factory(Snippet::class)->create([
             'title' => 'My Snippet',
@@ -40,7 +38,7 @@ class ViewSnippetListingTest extends TestCase
     }
 
     /** @test */
-    function user_cannot_view_unpublished_snippet_listings()
+    public function user_cannot_view_unpublished_snippet_listings()
     {
         $response = $this->get('/snippets/foo');
         $response->assertStatus(404);
