@@ -3,14 +3,13 @@ language: php
 dist: trusty
 
 php:
-  - 7.0
   - 7.1
 
 services:
   - mysql
 
 before_install:
-  - mysql -e 'CREATE DATABASE snippets;'
+  - mysql -e 'CREATE DATABASE snippets_testing;'
 
 install:
   - travis_retry composer install --no-interaction
