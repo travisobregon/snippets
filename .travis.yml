@@ -15,10 +15,10 @@ install:
   - travis_retry composer install --no-interaction --prefer-dist --no-suggest
   # Create a new .env file
   - cp .env.testing .env
-  # Generate application key
-  - php artisan key:generate
 
 before_script:
+  # Generate application key
+  - php artisan key:generate
   # Start PhantomJS driver
   - phantomjs --webdriver=127.0.0.1:9515 &
   # Start server
