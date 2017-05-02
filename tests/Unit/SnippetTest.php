@@ -19,7 +19,7 @@ class SnippetTest extends TestCase
             'forked_id' => $snippet->id,
         ]);
 
-        $this->assertFalse($snippet->forks->contains($forkedSnippet));
+        $this->assertTrue($snippet->forks->contains($forkedSnippet));
     }
 
     /** @test */
