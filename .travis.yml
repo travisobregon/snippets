@@ -11,7 +11,6 @@ install:
   - travis_retry composer install --no-interaction --prefer-dist --no-suggest
 before_script:
   - cp .env.testing .env
-  - php artisan key:generate
 script:
   - vendor/bin/phpunit
 deploy:
