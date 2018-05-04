@@ -10,4 +10,6 @@ Route::get('/@{user}', 'UsersController@show');
 
 Route::post('/votes/{snippet}', 'VotesController@store');
 
+Route::get('/top-users', 'TopUsersController@index');
+
 Auth::routes();

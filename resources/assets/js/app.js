@@ -13,7 +13,8 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example', require('./components/Example.vue'));
+Vue.component('favourite', require('./components/Favourite.vue'));
+Vue.component('top-users', require('./components/TopUsers.vue'));
 
 const app = new Vue({
     el: '#app'
@@ -22,13 +23,3 @@ const app = new Vue({
 import autosize from 'autosize';
 
 autosize($('textarea'));
-
-$('.vote-form').submit(e => {
-	e.preventDefault();
-
-    axios.post(`/votes/${e.target.snippet_id.value}`)
-        .then(response => {
-            $(e.target.vote_btn).toggleClass('liked');
-            $(e.target.vote_btn).siblings('.like-counter').html(response.data.count);
-        });
-});

@@ -1,11 +1,3 @@
-<form class="vote-form" method="POST">
-    {{ csrf_field() }}
+<favourite snippet-id="{{ $snippet->id }}" :initial-favourited="{{ json_encode(Auth::user()->votedFor($snippet)) }}" initial-count="{{ $snippet->votes->count() }}" ></favourite>
 
-    <input type="hidden" name="snippet_id" value="{{ $snippet->id }}">
-
-    <button class="glyphicon glyphicon-heart {{ Auth::user()->votedFor($snippet) ? 'liked' : '' }}" name="vote_btn"></button>
-    
-    <span class="vote-counter">{{ $snippet->votes->count() }}</span>
-
-    <a href="/snippets/{{ $snippet->id }}/fork" class="btn btn-sm btn-default">Fork</a>
-</form>
+<a href="/snippets/{{ $snippet->id }}/fork" class="btn btn-sm btn-default" style="display: inline-table">Fork</a>

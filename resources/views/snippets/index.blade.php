@@ -30,20 +30,7 @@
             </div>
 
             <div class="col-md-4">
-                @if ($topUsers->count())
-                    <h4>Top Users</h4>
-
-                    <ul class="list-group">
-                        @foreach ($topUsers as $user)
-                            <li class="list-group-item">
-                                <a href="/&#64;{{ $user->username }}">{{ $user->name }}</a>
-                                <span class="badge">{{ $user->votes }}</span>
-                            </li>
-                        @endforeach
-                    </ul>
-                @endif
-
-                <a class="btn btn-primary btn-block" href="/snippets/create"><span class="glyphicon glyphicon-pencil"></span>Create Snippet</a>
+                <top-users :initial-top-users="{{ json_encode($topUsers) }}"><top-users>
             </div>
         </div>
     @else
