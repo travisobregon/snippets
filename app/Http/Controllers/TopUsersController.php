@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use DB;
-use Illuminate\Http\Request;
 
 class TopUsersController extends Controller
 {
     /**
      * List all of the top users.
      */
-    public function index() {
+    public function index()
+    {
         $topUsers = DB::table('snippets_votes')
             ->join('snippets', 'snippets.id', '=', 'snippets_votes.snippet_id')
             ->join('users', 'users.id', '=', 'snippets.user_id')
@@ -23,5 +23,5 @@ class TopUsersController extends Controller
         return response()->json([
             'topUsers' => $topUsers,
         ]);
-    }   
+    }
 }

@@ -15,7 +15,7 @@ class VotesController extends Controller
 
         return response()->json([
             'count' => $snippet->votes->count(),
-            'favourited' => (bool) count($changes['attached'])
+            'favourited' => (bool) count($changes['attached']),
         ]);
     }
 }
