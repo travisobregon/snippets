@@ -1,49 +1,32 @@
 sudo: required
 language: php
 dist: trusty
-
 php:
   - 7.1
-
 services:
   - mysql
-
 before_install:
   - mysql -e 'CREATE DATABASE snippets_testing;'
-
 install:
   - travis_retry composer install --no-interaction --prefer-dist --no-suggest
-
 before_script:
-  # Create a new .env file
   - cp .env.testing .env
-  # Generate application key
   - php artisan key:generate
-  # Start PhantomJS driver
-  - phantomjs --webdriver=127.0.0.1:9515 &
-  # Start server
-  - php artisan serve &
-  # Give PhantomJS and Artisan time to start
-  - sleep 5
-
 script:
   - vendor/bin/phpunit
-  - php artisan dusk
-
 deploy:
   provider: heroku
   api_key:
-    secure: HRP0xoDkHXd+/DAnxc5Lfz/QnuMI5RtXbvYdNdutr1j88TyeXU7KAsI2AXMWorXD1A/WAHetzcONBJqv3Tyakcpy9b1PzATDNRr9qULSTfQJqJD6RU2Mu0LfC18u27H+edUnjmgWH80Pa42hkzqUW0irZ1UZjmm/HfESoBVQ9+FSjzL7nJSs7FMZEBrcvZNC+eu+qw7vLXdpA8SLjkac1Glpo4Eev35pPX80QqqlN2Z7if0YGA6UWICVqe4X+ekfxnfeYGC1bpKN3UohuJf+qrIdgjw0gVKWFT3J4CLMJXjHZ2R17naS5sLIpM7peUS39QVAisIcDyDOR4jlIaBeGyhjaLO6lBNCPDVn1cGlQuJgndZnYBHA5chJndHgYrdXyS88++bMF4+g5Y6Bc1+Mu0dgMl7A2Izy9iEPhD7kWxvhBxEzorQqmXfQ8bcGvaLVnZEJWEe4KzEYMESDnNrZOjO5yjdw7jbYgeiom/m51tSyFak4KjIM4nQBwFCPKVQ33OO4CXtx6SgSxfDnPUDgxl73WYUGo1rKRBYMSq/2HM6WV0l0HCG1WjEMK9Lv975PVMDhsBYfAZrsLUteL3wI1pQ3HsQA4y3O0aroCo+IiWEVNDFc9ORoHHF/4s5W+lIJsMA1Wx4VeFlPJyoMg3pitJfrxUpMuS6QDX98AGuVRFg=
-  app: shielded-cove-19524
+    secure: onHgZ7hxOQCDdHI/AfpnzSVR5SEUNI6RhAgogav89BdFos803n21LGxY94Esg0KqwQx7oEooAWqlIc3ZNuaYh+IPx5I3KnrhR64ttVCoPfd06Z6FEEK+sYUglXNogvKPKJWFwVjpvlvUOzD73g9GQy/7tY9JX4S2nSxCFXMsA4i+EAz0wfCps2MgpsKCRG71Kx4ueX0kKZ0fBP2vhPXeNVVH3nwudnnCLql9EUiRx2f46YZ4TO8E2nS72oGbtpNNqGy9zrjkF0sV8A421VuSAmvtIU+th8IEKAMCkhbOmfAB4J+LXNx20sPxw1u8nQkCYUveN+rs69Kvp/n9qrOMzlEUtqPbWpj0KgOn6FWq+vBW5Q+LtdO1h6WNokQci9aDtg/ifL0QqbK7of3HNECoDcOx0qtTmAD+i7hhNL0mJBJlNlBR5Mwnq15Zd/GLTOk6YbcUd+JZ8IcnEae4FhW9e+em1eSBg2uPQDu64rEG9pEUF1yq/ppTGV/AyMcFWDzAfZ6z4r2vozwCKt2oo+8jpxLWIMud/sEravpQMjDIQZJZJvHJ7YbqWvwMC6xyr9g7JTFWm3g9824JYm4p9FdrLMOwmt/v0dKb0FZSdjYIBctlBzR2TyVSGp++WVQEVY+eUUlZN8NH15Bua7x5VgmlWyEAOnchrofRNGeksoUSxkU=
+  app: warm-garden-28757
   on:
     repo: travisobregon/snippets
   run:
-    - "composer install -o --no-interactions"
-    - "php artisan migrate --no-interaction --force"
-    - "yarn && npm run production"
-    - "php artisan route:cache"
-    - "php artisan config:cache"
-    - "php artisan queue:restart"
-
+    - composer install -o --no-interactions
+    - php artisan migrate --no-interaction --force
+    - yarn && npm run production
+    - php artisan route:cache
+    - php artisan config:cache
+    - php artisan queue:restart
 notifications:
   slack: itt-devops:3h9i2RuAo1VWBTj9oCi5DWEQ

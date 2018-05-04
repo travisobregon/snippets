@@ -289,16 +289,16 @@
         },
         {
             "name": "laravel/dusk",
-            "version": "v1.1.0",
+            "version": "v1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/dusk.git",
-                "reference": "6b81e97ae1ce384e3d8dbd020b2b9751c1449889"
+                "reference": "87d57bbcb878e569aa8750e1d487ce923561f3e3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/dusk/zipball/6b81e97ae1ce384e3d8dbd020b2b9751c1449889",
-                "reference": "6b81e97ae1ce384e3d8dbd020b2b9751c1449889",
+                "url": "https://api.github.com/repos/laravel/dusk/zipball/87d57bbcb878e569aa8750e1d487ce923561f3e3",
+                "reference": "87d57bbcb878e569aa8750e1d487ce923561f3e3",
                 "shasum": ""
             },
             "require": {
@@ -317,7 +317,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0-dev"
+                    "dev-master": "2.0-dev"
                 }
             },
             "autoload": {
@@ -336,12 +336,13 @@
                 }
             ],
             "description": "Laravel Dusk provides simple end-to-end testing and browser automation.",
+            "homepage": "https://laravel.com",
             "keywords": [
                 "laravel",
                 "testing",
                 "webdriver"
             ],
-            "time": "2017-04-23T17:13:04+00:00"
+            "time": "2017-10-31T21:41:42+00:00"
         },
         {
             "name": "laravel/framework",

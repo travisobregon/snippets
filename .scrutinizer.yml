@@ -16,8 +16,3 @@ checks:
     fix_line_ending: true
     fix_identation_4spaces: true
     fix_doc_comments: true
-
-build_failure_conditions:
-  - 'elements.rating(<= D).exists'               # No classes/methods with a rating of D or worse
-  - 'issues.severity(>= MAJOR).new.exists'       # New issues of major or higher severity
-  - 'project.metric("scrutinizer.quality", < 6)' # Code Quality Rating drops below 6
